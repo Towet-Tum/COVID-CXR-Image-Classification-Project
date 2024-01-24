@@ -1,6 +1,7 @@
 from cnnClassifier import logger
 from cnnClassifier.pipeline.stage_01_data_ingestion import DataIngestionPipeline
 from cnnClassifier.pipeline.stage_02_data_preprocessing import DataPreprocessingPipeline
+from cnnClassifier.pipeline.stage_03_training import TrainingPipeline
 
 STAGE_NAME = "Data Ingestion Stage"
 try:
@@ -18,6 +19,16 @@ try:
     preprocess = DataPreprocessingPipeline()
     preprocess.main()
     logger.info(f">>>>>>>>>>> The {STAGE_NAME} has completed succefully >>>>>>>")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+STAGE_NAME = "Training Stage"
+try:
+    logger.info(f">>>>>>>>> The {STAGE_NAME} has started >>>>>  ")
+    train = TrainingPipeline()
+    train.main()
+    logger.info(f">>>>>>>>> The {STAGE_NAME} has completed succefully >>>>>  ")
 except Exception as e:
     logger.exception(e)
     raise e

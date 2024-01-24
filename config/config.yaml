@@ -10,3 +10,7 @@ data_ingestion:
 data_preprocessing:
   root_dir: artifacts/data_preprocessing
   split_folder: artifacts/data_preprocessing/split_dataset
+
+training:
+  root_dir: artifacts/training
+  trained_model_path: artifacts/training/vgg16_model.h5
