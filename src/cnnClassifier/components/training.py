@@ -1,6 +1,6 @@
 import os
 import tensorflow as tf
-from tensorflow.keras.preprocessing_image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from cnnClassifier.entity.config_entity import TrainingConfig
 
 

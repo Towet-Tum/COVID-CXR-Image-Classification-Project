@@ -160,3 +160,17 @@ cython_debug/
 #.idea/
 
 artifacts/*
+
+# DVC files and directories
+
+artifacts/*
+
+# DVC files and directories
+.dvc/
+.dvc.lock
+.dvcignore
+.dvc/config
+*.dvc
+
+# DVC cache directory
+.dvc/cache/
