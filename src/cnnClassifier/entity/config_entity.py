@@ -7,3 +7,9 @@ class DataIngestionConfig:
     source_URL: Path 
     local_data_file: Path 
     unzip_dir: Path
+
+@dataclass(frozen=True)
+class DataPreprocessingConfig:
+    root_dir: Path
+    split_folder: Path
+    dataset: Path

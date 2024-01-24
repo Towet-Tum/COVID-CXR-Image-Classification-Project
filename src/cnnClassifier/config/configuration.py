@@ -1,6 +1,7 @@
+import os
 from cnnClassifier.constants import *
 from cnnClassifier.utils.common import read_yaml, create_directories
-from cnnClassifier.entity.config_entity import DataIngestionConfig
+from cnnClassifier.entity.config_entity import DataIngestionConfig, DataPreprocessingConfig
 
 class ConfigurationManager:
     def __init__(self,
@@ -21,3 +22,15 @@ class ConfigurationManager:
             unzip_dir=config.unzip_dir
         )
         return data_ingestion_config
+    
+    def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
+        
+        dataset = os.path.join("artifacts", "data_ingestion", "COVID_IEEE")
+        config = self.config.data_preprocessing
+        create_directories([config.root_dir, config.split_folder])
+        data_preprocessing_config = DataPreprocessingConfig(
+            root_dir = config.root_dir,
+            dataset = Path(dataset),
+            split_folder = config.split_folder
+        )
+        return data_preprocessing_config
